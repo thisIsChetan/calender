@@ -25512,7 +25512,7 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-top));
 }
 
-page-home ion-grid div {
+cd-calender ion-grid div {
   text-align: center;
   color: black;
   font-weight: 900;
@@ -25520,20 +25520,20 @@ page-home ion-grid div {
   font-size: 15px;
 }
 
-page-home ion-grid .week-label {
+cd-calender ion-grid .week-label {
   color: #676767;
   font-size: 10px;
   text-align: center;
 }
 
-page-home ion-grid ion-row .bold {
+cd-calender ion-grid ion-row .bold {
   color: black;
 }
 
-page-home ion-grid ion-row .fade {
+cd-calender ion-grid ion-row .fade {
   color: #cdcdcd;
 }
 
-page-home ion-grid ion-row ion-col {
+cd-calender ion-grid ion-row ion-col {
   text-align: center;
 }

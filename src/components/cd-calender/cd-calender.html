@@ -1,0 +1,16 @@
+<!-- Generated template for the CdCalenderComponent component -->
+<ion-grid *ngFor="let month of calenderData; let i = index">
+  <div>{{month[2][0].format('MMMM YYYY')}}</div>
+  <ion-row class="week-label">
+      <ion-col col  >SUN</ion-col>
+      <ion-col col  >MON</ion-col>
+      <ion-col col  >TUE</ion-col>
+      <ion-col col  >WED</ion-col>
+      <ion-col col  >THU</ion-col>
+      <ion-col col  >FRI</ion-col>
+      <ion-col col  >SAT</ion-col>
+    </ion-row>
+  <ion-row *ngFor="let week of month">
+    <ion-col col *ngFor="let day of week"  [ngClass]="(month[2][0].month() == day.month())?'bold':'fade'">{{day.format('D')}}</ion-col>
+  </ion-row>
+</ion-grid>
