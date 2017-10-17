@@ -1,0 +1,67 @@
+page-pre-settings {
+    .agree-div{
+       
+        padding: 13px 31px;
+    }
+    .agree-btn{
+        border-radius: 7px !important;
+        height: 40px;
+        background: gray;
+    }
+    .flex-container {
+        display: -webkit-flex;
+        display: flex;
+        width: 100%;
+        height: 100px;
+    }
+    .status-bar{
+        position: relative;
+        text-align: center;
+    }
+   
+
+     ul{
+        padding: 0px!important;
+    }
+    
+    li {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 40px;
+        background: gray;
+        margin: 0px 12px;
+        display: inline-block;
+        color: white;
+        position: relative;
+    }
+
+    li::before{
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: -4em;
+        width: 4em;
+        height: .2em;
+        background: gray;
+        z-index: -1;
+    }
+
+    li:first-child::before {
+        display: none;
+    }
+
+    .active {
+        background: gray;
+    }
+
+    .active ~ li {
+        background: lightblue;
+    }
+
+    .active ~ li::before {
+        background: lightblue;
+    }      
+    
+}

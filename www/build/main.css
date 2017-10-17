@@ -3815,6 +3815,10 @@ ion-icon::before {
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.woff") format("woff"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
 }
 
+ion-backdrop {
+  display: none !important;
+}
+
 ion-action-sheet {
   left: 0;
   top: 0;
@@ -25536,4 +25540,97 @@ cd-calender ion-grid ion-row .fade {
 
 cd-calender ion-grid ion-row ion-col {
   text-align: center;
+}
+
+page-pre-settings .agree-div {
+  padding: 13px 31px;
+}
+
+page-pre-settings .agree-btn {
+  border-radius: 7px !important;
+  height: 40px;
+  background: gray;
+}
+
+page-pre-settings .flex-container {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100px;
+}
+
+page-pre-settings .status-bar {
+  position: relative;
+  text-align: center;
+}
+
+page-pre-settings ul {
+  padding: 0px !important;
+}
+
+page-pre-settings li {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 40px;
+  background: gray;
+  margin: 0px 12px;
+  display: inline-block;
+  color: white;
+  position: relative;
+}
+
+page-pre-settings li::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -4em;
+  width: 4em;
+  height: .2em;
+  background: gray;
+  z-index: -1;
+}
+
+page-pre-settings li:first-child::before {
+  display: none;
+}
+
+page-pre-settings .active {
+  background: gray;
+}
+
+page-pre-settings .active ~ li {
+  background: lightblue;
+}
+
+page-pre-settings .active ~ li::before {
+  background: lightblue;
+}
+
+page-terms-and-condition .agree-div {
+  background: rgba(128, 128, 128, 0.2);
+  padding: 13px 31px;
+}
+
+page-terms-and-condition .agree-btn {
+  border-radius: 7px !important;
+  height: 40px;
+  background: gray;
+}
+
+page-welcome .agree-div {
+  padding: 13px 31px;
+}
+
+page-welcome .agree-btn {
+  border-radius: 7px !important;
+  height: 40px;
+  background: gray;
+}
+
+page-welcome .slide {
+  overflow: scroll !important;
 }
