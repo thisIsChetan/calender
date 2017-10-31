@@ -1,0 +1,21 @@
+page-welcome {
+ .agree-div{
+        padding: 10px 15px;
+    }
+    .agree-btn{
+        border-radius: 7px !important;
+        height: 40px;
+        background: gray;
+    }
+    .slide{
+        overflow: scroll!important;; 
+    }
+    img{
+        max-width: 250px !important;
+        max-height: 250px !important;
+    }
+    .swiper-pagination-bullet-active {
+        background: gray;
+        opacity: 1;
+    }
+}

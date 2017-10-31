@@ -1,0 +1,269 @@
+ .picker-wrapper {
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top:0 !important;
+    margin: auto;
+    -webkit-transform: translate3d(0, 10%, 0) !important;
+    transform: translate3d(0, 10%, 0) !important;
+    position: absolute;
+    z-index: 10;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    
+    }
+page-pre-settings {
+
+   
+    overflow: hidden;
+    ion-slide.swiper-slide {
+      align-items: flex-start;
+    }
+
+    .period-start-content{
+        margin: 0px 25px !important;
+        border-top: 0px !important;
+    }
+    .first-item{
+        border-top: 0px !important;
+    }
+    .agree-div{
+       
+        padding: 13px 31px;
+    }
+    .agree-btn{
+        border-radius: 7px !important;
+        height: 40px;
+        background: gray;
+    }
+    .flex-container {
+        display: -webkit-flex;
+        display: flex;
+        width: 100%;
+        height: 100px;
+    }
+    .status-bar{
+        position: relative;
+        text-align: center;
+    }
+
+    ion-slides {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+   
+
+     ul{
+        padding: 0px!important;
+    }
+    
+    li {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 40px;
+        background: gray;
+        display: inline-block;
+        color: white;
+        position: relative;
+    }
+
+    li::before{
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: -4em;
+        width: 4em;
+        height: .2em;
+        background: gray;
+        z-index: -1;
+       
+    }
+
+    li:first-child::before {
+        display: none;
+    }
+
+    .active {
+         -webkit-transition: all 0.7s ease-out;
+        -moz-transition: all 0.7s ease-out;
+        -ms-transition: all 0.7s ease-out;
+        -o-transition: all 0.7s ease-out;
+        transition: all 0.7s ease-out;
+        background: gray;
+    }
+
+    .active ~ li {
+         -webkit-transition: all 0.7s ease-out;
+        -moz-transition: all 0.7s ease-out;
+        -ms-transition: all 0.7s ease-out;
+        -o-transition: all 0.7s ease-out;
+        transition: all 0.7s ease-out;
+        background: lightblue;
+    }
+
+    .active ~ li::before {
+         -webkit-transition: all 0.7s ease-out;
+        -moz-transition: all 0.7s ease-out;
+        -ms-transition: all 0.7s ease-out;
+        -o-transition: all 0.7s ease-out;
+        transition: all 0.7s ease-out;
+        background: lightblue;
+    }      
+
+    .hide {
+      visibility: hidden;
+    }
+
+    .parent{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin-top: 25%;
+    }
+
+    .child{
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .days-label{
+        margin-top: 30% !important;
+    }
+
+    .slideForm{
+        margin: 0 7% !important;
+    }
+    
+}
+
+
+
+/************** IPHONE 6 PLUS ***************/
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : portrait) { /* STYLES GO HERE */
+
+    li {
+         margin: 0px 27px !important;
+    }
+}
+
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : landscape) { /* STYLES GO HERE */}
+
+
+
+/**************** IPHONE 5S ***************/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) { 
+    li {
+         margin: 0px 20px;
+    }
+ }
+
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : landscape) { /* STYLES GO HERE */}
+
+
+/* ----------- iPad Pro ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    li {
+         margin: 0px 80px !important;
+          width: 80px !important;
+        height: 80px !important;
+        text-align: center;
+        line-height: 80px !important;
+        border-radius: 80px !important;
+        font-size: 20px !important;
+    }
+
+    li::before{
+        content: '';
+        position: absolute;
+        top: 40px !important;
+        left: -11em !important;
+        width: 14em !important;
+    }
+    
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+
+    li {
+        margin: 0px 80px !important;
+        width: 80px !important;
+        height: 80px !important;
+        text-align: center;
+        line-height: 80px !important;
+        border-radius: 80px !important;
+        font-size: 20px !important;
+    }
+
+    li::before{
+        content: '';
+        position: absolute;
+        top: 40px !important;
+        left: -11em !important;
+        width: 14em !important;
+    }
+
+}
+
+@media all and (orientation:landscape) {
+  /* Styles for landscape screen */
+  page-pre-settings {
+		
+    li {
+         margin: 0px 24px;
+    }
+  }
+
+ 
+}
+@media all and (orientation:portrait) {
+  /* Styles for Portrait screen */
+page-pre-settings {
+     
+    li {
+         margin: 0px 20px;
+    }
+
+  }
+  
+}
