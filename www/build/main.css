@@ -25516,6 +25516,10 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-top));
 }
 
+ion-backdrop {
+  display: block !important;
+}
+
 cd-calender ion-grid div {
   text-align: center;
   color: black;
@@ -25542,6 +25546,62 @@ cd-calender ion-grid ion-row ion-col {
   text-align: center;
 }
 
+menstrual-cycle .top-margin {
+  margin-top: 25%;
+}
+
+period-days-last .top-margin {
+  margin-top: 25%;
+}
+
+period-length .top-margin {
+  margin-top: 25%;
+}
+
+.picker-wrapper {
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  top: 0 !important;
+  margin: auto;
+  -webkit-transform: translate3d(0, 10%, 0) !important;
+  transform: translate3d(0, 10%, 0) !important;
+  position: absolute;
+  z-index: 10;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+}
+
+page-pre-settings {
+  overflow: hidden;
+}
+
+page-pre-settings ion-slide.swiper-slide {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+page-pre-settings .period-start-content {
+  margin: 0px 25px !important;
+  border-top: 0px !important;
+}
+
+page-pre-settings .first-item {
+  border-top: 0px !important;
+}
+
 page-pre-settings .agree-div {
   padding: 13px 31px;
 }
@@ -25566,6 +25626,12 @@ page-pre-settings .status-bar {
   text-align: center;
 }
 
+page-pre-settings ion-slides {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 page-pre-settings ul {
   padding: 0px !important;
 }
@@ -25577,7 +25643,6 @@ page-pre-settings li {
   line-height: 40px;
   border-radius: 40px;
   background: gray;
-  margin: 0px 12px;
   display: inline-block;
   color: white;
   position: relative;
@@ -25599,15 +25664,127 @@ page-pre-settings li:first-child::before {
 }
 
 page-pre-settings .active {
+  -webkit-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
   background: gray;
 }
 
 page-pre-settings .active ~ li {
+  -webkit-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
   background: lightblue;
 }
 
 page-pre-settings .active ~ li::before {
+  -webkit-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
   background: lightblue;
+}
+
+page-pre-settings .hide {
+  visibility: hidden;
+}
+
+page-pre-settings .parent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 25%;
+}
+
+page-pre-settings .child {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+page-pre-settings .days-label {
+  margin-top: 30% !important;
+}
+
+page-pre-settings .slideForm {
+  margin: 0 7% !important;
+}
+
+/************** IPHONE 6 PLUS ***************/
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+  /* STYLES GO HERE */
+  li {
+    margin: 0px 27px !important;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+  /* STYLES GO HERE */
+}
+
+/**************** IPHONE 5S ***************/
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
+  li {
+    margin: 0px 20px;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {
+  /* STYLES GO HERE */
+}
+
+/* ----------- iPad Pro ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5) {
+  li {
+    margin: 0px 80px !important;
+    width: 80px !important;
+    height: 80px !important;
+    text-align: center;
+    line-height: 80px !important;
+    border-radius: 80px !important;
+    font-size: 20px !important;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    top: 40px !important;
+    left: -11em !important;
+    width: 14em !important;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
+  li {
+    margin: 0px 80px !important;
+    width: 80px !important;
+    height: 80px !important;
+    text-align: center;
+    line-height: 80px !important;
+    border-radius: 80px !important;
+    font-size: 20px !important;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    top: 40px !important;
+    left: -11em !important;
+    width: 14em !important;
+  }
+}
+
+@media all and (orientation: landscape) {
+  /* Styles for landscape screen */
+  page-pre-settings li {
+    margin: 0px 24px;
+  }
+}
+
+@media all and (orientation: portrait) {
+  /* Styles for Portrait screen */
+  page-pre-settings li {
+    margin: 0px 20px;
+  }
 }
 
 page-terms-and-condition .agree-div {
@@ -25621,8 +25798,12 @@ page-terms-and-condition .agree-btn {
   background: gray;
 }
 
+page-terms-and-condition div {
+  font-size: 14px !important;
+}
+
 page-welcome .agree-div {
-  padding: 13px 31px;
+  padding: 10px 15px;
 }
 
 page-welcome .agree-btn {
@@ -25633,4 +25814,14 @@ page-welcome .agree-btn {
 
 page-welcome .slide {
   overflow: scroll !important;
+}
+
+page-welcome img {
+  max-width: 250px !important;
+  max-height: 250px !important;
+}
+
+page-welcome .swiper-pagination-bullet-active {
+  background: gray;
+  opacity: 1;
 }

@@ -10,13 +10,18 @@ import { HomePage } from '../pages/home/home';
 import { ComponentsModule } from '../components/components.module';
 import { TermsAndConditionPage } from '../pages/terms-and-condition/terms-and-condition';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { PeriodStartComponent } from '../components/period-start/period-start';
+
+import { DatePicker } from '@ionic-native/date-picker';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TermsAndConditionPage,
     WelcomePage,
-    PreSettingsPage
+    PreSettingsPage,
+    PeriodStartComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
   providers: [
     StatusBar,
     SplashScreen,
+    DatePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

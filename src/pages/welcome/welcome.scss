@@ -1,6 +1,6 @@
 page-welcome {
  .agree-div{
-        padding: 13px 31px;
+        padding: 10px 15px;
     }
     .agree-btn{
         border-radius: 7px !important;
@@ -8,6 +8,14 @@ page-welcome {
         background: gray;
     }
     .slide{
-        overflow: scroll!important;
+        overflow: scroll!important;; 
+    }
+    img{
+        max-width: 250px !important;
+        max-height: 250px !important;
+    }
+    .swiper-pagination-bullet-active {
+        background: gray;
+        opacity: 1;
     }
 }

@@ -4,10 +4,10 @@ import { PreSettingsPage } from './pre-settings';
 
 @NgModule({
   declarations: [
-    PreSettingsPage,
+    PreSettingsPage
   ],
   imports: [
-    IonicPageModule.forChild(PreSettingsPage),
+    IonicPageModule.forChild(PreSettingsPage)
   ],
 })
 export class PreSettingsPageModule {}

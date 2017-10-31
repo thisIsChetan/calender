@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, Slides } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, Slides, App, PickerController, PickerColumn, PickerColumnOption } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { DatePicker } from '@ionic-native/date-picker';
+import * as moment from 'moment';
 /**
  * Generated class for the PreSettingsPage page.
  *
@@ -12,26 +14,55 @@ import { HomePage } from '../home/home';
 @Component({
   selector: 'page-pre-settings',
   templateUrl: 'pre-settings.html',
+  
 })
 export class PreSettingsPage {
   @ViewChild(Slides) slides: Slides;
   disableBtn: boolean;
   circleArray:any;
   isActive:any;
+  nextShow:boolean = true;
+  backEnabled:boolean;
+  month:any;
+  day:any;
+  year:any;
+  simpleColumns:any;
+  items:any;
+  lastPeriodDay:any;
+  cycleLength:any;
+  periodLength:any;
+  name:any;
+  email:any;
+  disabled:boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menu:MenuController) {
+  constructor(public picker: PickerController, private datePicker: DatePicker, public navCtrl: NavController, public navParams: NavParams, public menu:MenuController, public app:App) {
     this.menu.enable(false);
     this.disableBtn = false;
     this.isActive = 1;
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PreSettingsPage');
-    this.circleArray = [1,2,3,4,5];
+    this.circleArray = [1,2,3,4];
+    this.slides.lockSwipes(true);
+    this.month = "October";
+    this.day = "20";
+    this.year = "2018";
+    this.cycleLength=""
+    this.items = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+    //(this.name) ? this.disabled = false : this.disabled = true;
+    console.log(this.isActive);
+    
   }
 
   next(){
     this.isActive++;
+    this.slides.lockSwipes(false); //unlock swipe
+    this.slides.slideTo(this.isActive-1);
+    (this.isActive == 4) ? this.nextShow = false : this.nextShow = true;
+    this.slides.lockSwipes(true); //lock swipe
+    (this.isActive>1)? this.backEnabled = true : this.backEnabled=false;
   }
 
   start(){
@@ -42,9 +73,168 @@ export class PreSettingsPage {
    slideChanged() {
     let currentIndex = this.slides.getActiveIndex()+1;
     console.log('Current index is', currentIndex);
-    if(currentIndex>4){
+    // switch(this.isActive){
+    //   case 1:
+    //     break;
+    //   case 2:
+    //     this.selectPeriodDay();
+    //     break;
+    //   case 3:
+    //     this.cycleLengthDay();
+    //     break;
+    //   case 4:
+    //     this.periodLengthDay();
+    //     break;
 
-    }
+    // }
   }
+
+  back(){
+     this.isActive--;
+    this.slides.lockSwipes(false); //unlock swipe
+    this.slides.slideTo(this.isActive-1);
+   
+    this.slides.lockSwipes(true); //lock swipe
+    (this.isActive>1)? this.backEnabled = true : this.backEnabled=false;
+    (this.isActive == 4) ? this.nextShow = false : this.nextShow = true;
+
+  }
+
+  selectDate(){
+    this.datePicker.show({
+        date: new Date(),
+        mode: 'date'
+      }).then(
+        date => alert(moment(date).month() + ": " + moment(date).day() + ": " + moment(date).year()),
+        err => console.log('Error occurred while getting date: ', err)
+      );
+   }
+
+    runTimeChange($event){
+      console.log($event);
+    }
+
+    selectPeriodDay(){
+      let selectedIndex = 7;
+      let picker1 = this.picker.create({
+          buttons: [
+            {
+              text: "Cancel",
+              role: 'cancel',
+              handler: (data: any) => {
+                
+              }
+            },
+            {
+              text: "Done",
+              handler: (data: any) => {
+                this.lastPeriodDay = data.name.text;
+                console.log(data.name.text);
+              }
+            }
+          ]
+        });
+
+         let colArray: PickerColumnOption[] = []
+        for (let i = 0; i < this.items.length; i++) {
+          let col: PickerColumnOption = {
+            text: this.items[i],
+            value: i,
+          }
+          colArray.push(col)
+        }
+
+        let column: PickerColumn = {
+          name: "name",
+          columnWidth: '100%',
+          selectedIndex: selectedIndex,
+          options: colArray
+        }
+
+        picker1.addColumn(column);
+        picker1.present(picker1);
+    }
+
+    cycleLengthDay(){
+      let selectedIndex = 7;
+      let picker2= this.picker.create({
+          buttons: [
+            {
+              text: "Cancel",
+              role: 'cancel',
+              handler: (data: any) => {
+                
+              }
+            },
+            {
+              text: "Done",
+              handler: (data: any) => {
+                this.cycleLength = data.name.text;
+                console.log(data.name.text);
+              }
+            }
+          ]
+        });
+
+         let colArray: PickerColumnOption[] = []
+        for (let i = 0; i < this.items.length; i++) {
+          let col: PickerColumnOption = {
+            text: this.items[i],
+            value: i,
+          }
+          colArray.push(col)
+        }
+
+        let column: PickerColumn = {
+          name: "name",
+          columnWidth: '100%',
+          selectedIndex: selectedIndex,
+          options: colArray
+        }
+
+        picker2.addColumn(column);
+        picker2.present(picker2);
+    }
+
+    periodLengthDay(){
+      let selectedIndex = 7;
+      let picker3 = this.picker.create({
+          buttons: [
+            {
+              text: "Cancel",
+              role: 'cancel',
+              handler: (data: any) => {
+                
+              }
+            },
+            {
+              text: "Done",
+              handler: (data: any) => {
+                this.periodLength = data.name.text;
+                console.log(data.name.text);
+              }
+            }
+          ]
+        });
+
+         let colArray: PickerColumnOption[] = []
+        for (let i = 0; i < this.items.length; i++) {
+          let col: PickerColumnOption = {
+            text: this.items[i],
+            value: i,
+          }
+          colArray.push(col)
+        }
+
+        let column: PickerColumn = {
+          name: "name",
+          columnWidth: '100%',
+          selectedIndex: selectedIndex,
+          options: colArray
+        }
+
+        picker3.addColumn(column);
+        picker3.present(picker3);
+    }
 
 }
