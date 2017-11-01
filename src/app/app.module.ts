@@ -6,22 +6,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { PreSettingsPage } from '../pages/pre-settings/pre-settings';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { ComponentsModule } from '../components/components.module';
 import { TermsAndConditionPage } from '../pages/terms-and-condition/terms-and-condition';
 import { WelcomePage } from '../pages/welcome/welcome';
-import { PeriodStartComponent } from '../components/period-start/period-start';
 
 import { DatePicker } from '@ionic-native/date-picker';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     TermsAndConditionPage,
     WelcomePage,
-    PreSettingsPage,
-    PeriodStartComponent
+    PreSettingsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +27,6 @@ import { DatePicker } from '@ionic-native/date-picker';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     TermsAndConditionPage,
     WelcomePage,
     PreSettingsPage
