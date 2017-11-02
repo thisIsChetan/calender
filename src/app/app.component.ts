@@ -7,7 +7,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TermsAndConditionPage } from '../pages/terms-and-condition/terms-and-condition';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { PreSettingsPage } from '../pages/pre-settings/pre-settings';
-
+import { HomePage } from '../pages/home/home'
+ 
 @Component({
   templateUrl: 'app.html'
 })
@@ -19,7 +20,7 @@ export class MyApp {
     {
       icon:"home",
       tittle:"MENU.HOME",
-      page:"HomePage"
+      page:HomePage
     },
     {
       icon:"home",
@@ -83,7 +84,7 @@ export class MyApp {
         this.rootPage = PreSettingsPage;
         break;
       case "preSetting":
-        this.rootPage = "HomePage";
+        this.rootPage = HomePage;
         break;
     }
     
@@ -95,7 +96,7 @@ export class MyApp {
     });
   }
 
-  openPage(page: string) {
+  openPage(page:  any) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     console.log("navifating to " + page)
