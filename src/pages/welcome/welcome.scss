@@ -1,12 +1,4 @@
 page-welcome {
- .agree-div{
-        padding: 10px 15px;
-    }
-    .agree-btn{
-        border-radius: 7px !important;
-        height: 40px;
-        background: gray;
-    }
     .slide{
         overflow: scroll!important;; 
     }
@@ -15,7 +7,37 @@ page-welcome {
         max-height: 250px !important;
     }
     .swiper-pagination-bullet-active {
-        background: gray;
+        background: white;
         opacity: 1;
     }
+
+ion-content {
+   background: linear-gradient(#FD979B,#E947AC);
+}
+p,h1{
+    color: white;
+}
+
+ion-footer {
+    max-height: 56px !important;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px !important; 
+    background: transparent !important;
+    
+    button{
+        display: block  !important;
+        max-height: 46px !important;
+        max-width: 350px !important;
+        margin: auto  !important;
+        background: white !important;
+         color: #E947AC !important;
+    }
+
+
+}
+
+ img {
+    max-width: 50% !important;
+}
 }

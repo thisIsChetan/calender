@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="21px" viewBox="0 0 13 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-8-Copy-10" transform="translate(-11.000000, -31.000000)">
+            <g id="Back" transform="translate(10.000000, 28.000000)">
+                <rect id="max" x="0" y="0" width="19" height="28"></rect>
+                <rect id="reg" x="0" y="3" width="19" height="22"></rect>
+                <polygon id="back" fill="#FFFFFF" points="11.5 3 1 13.5005 11.5 24 13.5005 22.0005 5 13.5005 13.5005 5.0005"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

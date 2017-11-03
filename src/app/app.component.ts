@@ -3,7 +3,7 @@ import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-// import { HomePage } from '../pages/home/home';
+ import { HomePage } from '../pages/home/home';
 import { TermsAndConditionPage } from '../pages/terms-and-condition/terms-and-condition';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { PreSettingsPage } from '../pages/pre-settings/pre-settings';
@@ -83,7 +83,7 @@ export class MyApp {
         this.rootPage = PreSettingsPage;
         break;
       case "preSetting":
-        this.rootPage = "HomePage";
+        this.rootPage = HomePage;
         break;
     }
     

@@ -11,13 +11,15 @@ import { TermsAndConditionPage } from '../pages/terms-and-condition/terms-and-co
 import { WelcomePage } from '../pages/welcome/welcome';
 
 import { DatePicker } from '@ionic-native/date-picker';
+import { HomePage } from '../pages/home/home';
 
 @NgModule({
   declarations: [
     MyApp,
     TermsAndConditionPage,
     WelcomePage,
-    PreSettingsPage
+    PreSettingsPage,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { DatePicker } from '@ionic-native/date-picker';
     MyApp,
     TermsAndConditionPage,
     WelcomePage,
-    PreSettingsPage
+    PreSettingsPage,
+    HomePage
   ],
   providers: [
     StatusBar,

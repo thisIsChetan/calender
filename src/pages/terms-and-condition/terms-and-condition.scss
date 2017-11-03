@@ -1,16 +1,28 @@
 page-terms-and-condition {
-
-    .agree-div{
-        background:  rgba(128, 128, 128, 0.2);
-        padding: 13px 31px;
-    }
-    .agree-btn{
-        border-radius: 7px !important;
-        height: 40px;
-        background: gray;
-    }
     div{
         font-size: 14px !important;
     }
+.toolbar-background{
+ background: linear-gradient(#FFA199,#FD979B);
+    color: white;
+}
+.toolbar-title{
+    color: white;
+}
+ion-footer {
+    max-height: 56px !important;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px !important; 
+    background: white !important;
+    button{
+        display: block  !important;
+        max-height: 46px !important;
+        max-width: 350px !important;
+        margin: auto  !important;
+        background: linear-gradient(#FD979B,#E947AC);
+    }
+}
+
 
 }
