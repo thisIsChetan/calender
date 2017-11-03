@@ -1,0 +1,13 @@
+{
+  "MENU":{
+    "HOME":"Home",
+    "PERIOD_LOGS":"Period Logs",
+    "INDICATIONS":"Indications",
+    "SHARE_HISTORY":"Share History",
+    "FAQS":"FAQs",
+    "PRIVACY_POLICY":"Privacy Policy",
+    "TERMS":"Terms",
+    "SHARE_APP":"Share App",
+    "SETTINGS":"Settings"
+  }
+}

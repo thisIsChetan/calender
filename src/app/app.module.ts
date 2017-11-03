@@ -10,8 +10,13 @@ import { ComponentsModule } from '../components/components.module';
 import { TermsAndConditionPage } from '../pages/terms-and-condition/terms-and-condition';
 import { WelcomePage } from '../pages/welcome/welcome';
 
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'
+import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { DatePicker } from '@ionic-native/date-picker';
-import { HomePage } from '../pages/home/home';
+
+import { HomePage } from '../pages/home/home'
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,15 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ComponentsModule
   ],
   bootstrap: [IonicApp],
@@ -41,4 +54,12 @@ import { HomePage } from '../pages/home/home';
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(translate: TranslateService) {
+    translate.setDefaultLang('en');
+  }
+}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
