@@ -36,6 +36,9 @@ page-pre-settings {
     }
     .first-item{
         border-top: 0px !important;
+        background-color:transparent;
+        color: white;
+        padding-left: 0px;
     }
     .agree-div{
        
@@ -44,7 +47,8 @@ page-pre-settings {
     .agree-btn{
         border-radius: 7px !important;
         height: 40px;
-        background: gray;
+        background: white;
+        color:rgba(237, 88, 168, 1);
     }
     .flex-container {
         display: -webkit-flex;
@@ -74,7 +78,8 @@ page-pre-settings {
         text-align: center;
         line-height: 40px;
         border-radius: 40px;
-        background: gray;
+        background: #FAABBF;
+        border: 2px solid white;
         display: inline-block;
         color: white;
         position: relative;
@@ -87,7 +92,7 @@ page-pre-settings {
         left: -4em;
         width: 4em;
         height: .2em;
-        background: gray;
+        background: white;
         z-index: -1;
        
     }
@@ -102,7 +107,7 @@ page-pre-settings {
         -ms-transition: all 0.7s ease-out;
         -o-transition: all 0.7s ease-out;
         transition: all 0.7s ease-out;
-        background: gray;
+        background: #FA8F9D;
     }
 
     .active ~ li {
@@ -111,7 +116,7 @@ page-pre-settings {
         -ms-transition: all 0.7s ease-out;
         -o-transition: all 0.7s ease-out;
         transition: all 0.7s ease-out;
-        background: lightblue;
+        background: #FAABBF;
     }
 
     .active ~ li::before {
@@ -130,8 +135,9 @@ page-pre-settings {
     .parent{
         position: relative;
         width: 100%;
+        color: white;
         height: 100%;
-        margin-top: 25%;
+        margin-top: 11%;
     }
 
     .child{
@@ -145,14 +151,55 @@ page-pre-settings {
 
     .days-label{
         margin-top: 30% !important;
+        color: white;
     }
 
     .slideForm{
         margin: 0 7% !important;
     }
-    
+ 
+
+ion-content {
+    left: 0;
+    top: 0;
+    position: relative;
+    display: block;
+    width: 100%;
+   background: linear-gradient(#FD979B,#E947AC);
+    height: 100%;
+    contain: layout size style;
 }
 
+.ion-page > ion-content {
+    /* position: absolute; */
+    background: linear-gradient(#FFA199,#E947AC);
+}
+
+.text-input::placeholder {
+  color: white;
+}
+
+label{
+    color:white;
+}
+
+.sec-item
+{
+    background:transparent;
+    text-align: center;
+}
+
+.toolbar-background{
+   background: linear-gradient(#FFA199,#FD979B);
+}
+
+.bar-button-default {
+    color: white;
+}
+ion-icon{
+    margin: 5px;
+}
+}
 
 
 /************** IPHONE 6 PLUS ***************/
@@ -164,12 +211,16 @@ and (orientation : portrait) { /* STYLES GO HERE */
     li {
          margin: 0px 27px !important;
     }
+
+
 }
 
 @media only screen 
 and (min-device-width : 414px) 
 and (max-device-width : 736px) 
-and (orientation : landscape) { /* STYLES GO HERE */}
+and (orientation : landscape) {  
+    
+    /* STYLES GO HERE */}
 
 
 

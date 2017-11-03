@@ -14,7 +14,9 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { DatePicker } from '@ionic-native/date-picker';
+
 import { HomePage } from '../pages/home/home'
+
 
 @NgModule({
   declarations: [

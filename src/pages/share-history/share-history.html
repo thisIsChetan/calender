@@ -22,75 +22,64 @@
           <ion-col >
             <div class="img-holder">
                 <img src="assets/img/sample.png">
+                Doctor
             </div>
           </ion-col>
           <ion-col>
               <div class="img-holder">
-                  <img src="assets/img/sample.png">
+                  <img src="assets/img/sample.png" >
+                  Pertner
               </div>
           </ion-col>
         </ion-row>
       </ion-grid>
       <ion-list>
-          <ion-item>
-            <ion-label floating>Email</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>  
-          <ion-list-header>
-            <ion-label>Daenerys Targaryen</ion-label>
-            <ion-checkbox color="primary" checked="true"></ion-checkbox>
+         
+  <ion-item>
+    <ion-label stacked>Email</ion-label>
+    <ion-input type="text" placeholder="xyz@email"></ion-input>
+  </ion-item>
+        <ion-grid>
+          <ion-list-header >
+            <ion-label>Select start and end date</ion-label>    
+             <ion-checkbox color="primary" checked="true"></ion-checkbox>  
           </ion-list-header> 
 
-              <ion-grid>
-                <ion-row>
-                  <ion-col>            
-                    <ion-item>
-                      <ion-label>End Date</ion-label>
-                      <ion-datetime displayFormat="MM/DD/YYYY"   [(ngModel)]="todayDate"></ion-datetime>
-                    </ion-item>   
-                  </ion-col>
-                  <ion-col>
-                  <ion-item>
-                    <ion-label>End Date</ion-label>
-                    <ion-datetime displayFormat="MM/DD/YYYY"   [(ngModel)]="todayDate"></ion-datetime>
-                  </ion-item>   
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
+  <ion-row>
+    <ion-col col-6>
+      <ion-label style="margin:12px"> Start Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
+    </ion-col>
+    <ion-col col-6>
+      <ion-label style="margin:12px">End Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime></ion-col>
+  </ion-row>
+</ion-grid>
+     
           <ion-list-header>
-            <ion-label>Daenerys Targaryen</ion-label>
-            <ion-checkbox color="primary" checked="true"></ion-checkbox>
-          </ion-list-header> 
-          <ion-item>
-              <ion-label>Gaming</ion-label>
-              <ion-select [(ngModel)]="gaming">
-                <ion-option value="nes">NES</ion-option>
-                <ion-option value="n64">Nintendo64</ion-option>
-                <ion-option value="ps">PlayStation</ion-option>
-                <ion-option value="genesis">Sega Genesis</ion-option>
-                <ion-option value="saturn">Sega Saturn</ion-option>
-                <ion-option value="snes">SNES</ion-option>
-              </ion-select>
-            </ion-item>
-            <ion-list-header>
-              <ion-label>Daenerys Targaryen</ion-label>
-              <ion-checkbox color="primary" checked="true"></ion-checkbox>
+            <ion-label>Select Month</ion-label>
+             <ion-checkbox color="primary" checked="true"></ion-checkbox>
             </ion-list-header> 
-            <ion-list radio-group>
-              <ion-list>
-                Language
-              </ion-list>
-            
-              <ion-item>
-                <ion-label>Go</ion-label>
-                <ion-radio checked="true" value="go"></ion-radio>
-              </ion-item>
-            
-              <ion-item>
-                <ion-label>Rust</ion-label>
-                <ion-radio value="rust"></ion-radio>
-              </ion-item>
-            </ion-list>
-      </ion-list>
+            <ion-item>
+    <ion-label floating>Select Month</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+                <ion-list radio-group>
+  <ion-list-header>
+    <ion-label>Select Cycle</ion-label>
+   <ion-checkbox color="primary" checked="true"></ion-checkbox>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Last Cycle</ion-label>
+    <ion-radio checked="true" value="go"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Current Cycle</ion-label>
+    <ion-radio value="rust"></ion-radio>
+  </ion-item>
+                </ion-list>
+                  </ion-list>
 
 </ion-content>
