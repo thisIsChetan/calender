@@ -1,4 +1,36 @@
 {
+  "TERMS":{
+    "HEADER":"Terms and Condition",
+    "AGREE":"Agree"
+  },
+  "WALKTHROUGH":{
+    "0":{
+      "IMG":"./assets/img/Shape.png",
+      "TITTLE":"Period",
+      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+    },
+    "1":{
+      "IMG":"./assets/img/Shape.png",
+      "TITTLE":"Fertile",
+      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+    }, 
+    "2":{
+      "IMG":"./assets/img/Shape.png",
+      "TITTLE":"Ovulation",
+      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+    }, 
+    "3":{
+      "IMG":"./assets/img/Shape.png",
+      "TITTLE":"Past and Prediction",
+      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+    }, 
+    "4":{
+      "IMG":"./assets/img/Shape.png",
+      "TITTLE":"Share it",
+      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+    },
+    "SKIP":"Skip it, I know"
+  },
   "MENU":{
     "HOME":"Home",
     "PERIOD_LOGS":"Period Logs",

@@ -12,11 +12,11 @@ import { TermsAndConditionPage } from '../pages/terms-and-condition/terms-and-co
 import { WelcomePage } from '../pages/welcome/welcome';
 
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
-import { DatePicker } from '@ionic-native/date-picker';
 
-import { HomePage } from '../pages/home/home';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'
+import { HttpClientModule, HttpClient} from '@angular/common/http';
+import { HomePage } from '../pages/home/home'
+
 
 
 @NgModule({
@@ -51,7 +51,6 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    DatePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

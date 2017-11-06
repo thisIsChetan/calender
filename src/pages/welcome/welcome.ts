@@ -19,7 +19,7 @@ export class WelcomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu:MenuController) {
     this.menu.enable(false);
-    this.slides = ["slide1","slide2","slide3","slide4"];
+    this.slides = [0,1,2,3,4];
   }
 
   ionViewDidLoad() {
