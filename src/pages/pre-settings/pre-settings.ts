@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, Slides, App, PickerController, PickerColumn, PickerColumnOption } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { DatePicker } from '@ionic-native/date-picker';
 import * as moment from 'moment';
 /**
  * Generated class for the PreSettingsPage page.
@@ -23,9 +22,6 @@ export class PreSettingsPage {
   isActive:any;
   nextShow:boolean = true;
   backEnabled:boolean;
-  month:any;
-  day:any;
-  year:any;
   simpleColumns:any;
   items:any;
   lastPeriodDay:any;
@@ -34,8 +30,9 @@ export class PreSettingsPage {
   name:any;
   email:any;
   disabled:boolean;
+  todayDate:String =  "2017-11-06";
 
-  constructor(public picker: PickerController, private datePicker: DatePicker, public navCtrl: NavController, public navParams: NavParams, public menu:MenuController, public app:App) {
+  constructor(public picker: PickerController, public navCtrl: NavController, public navParams: NavParams, public menu:MenuController, public app:App) {
     this.menu.enable(false);
     this.disableBtn = false;
     this.isActive = 1;
@@ -46,13 +43,13 @@ export class PreSettingsPage {
     console.log('ionViewDidLoad PreSettingsPage');
     this.circleArray = [1,2,3,4];
     this.slides.lockSwipes(true);
-    this.month = "October";
-    this.day = "20";
-    this.year = "2018";
     this.cycleLength=""
     this.items = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
     //(this.name) ? this.disabled = false : this.disabled = true;
     console.log(this.isActive);
+    setInterval(()=>{
+      console.log(this.todayDate);
+    },1000)
     
   }
 
@@ -99,16 +96,6 @@ export class PreSettingsPage {
     (this.isActive == 4) ? this.nextShow = false : this.nextShow = true;
 
   }
-
-  selectDate(){
-    this.datePicker.show({
-        date: new Date(),
-        mode: 'date'
-      }).then(
-        date => alert(moment(date).month() + ": " + moment(date).day() + ": " + moment(date).year()),
-        err => console.log('Error occurred while getting date: ', err)
-      );
-   }
 
     runTimeChange($event){
       console.log($event);

@@ -5,99 +5,80 @@
   Ionic pages and navigation.
 -->
 
-<ion-header >
-   
+<ion-header>
+
   <ion-navbar>
-     <ion-buttons [hidden]="!backEnabled" left>
-          <button class="btn-back" ion-button (click)="back()"><ion-icon ><img src="./assets/icon/Back.svg"/></ion-icon>  Back</button>
-      </ion-buttons>
+    <ion-buttons [hidden]="!backEnabled" left>
+      <button class="btn-back" ion-button (click)="back()"><ion-icon ><img src="./assets/icon/Back.svg"/></ion-icon>  Back</button>
+    </ion-buttons>
     <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-
-   <!-- <div class="flex-container">
-    <div class="status-line"></div>
-    <div class="flex-item">1</div>
-    <div class="flex-item">2</div>
-    <div class="flex-item">3</div>  
-    <div class="flex-item">4</div> 
-    <div class="flex-item">5</div>
-  </div>  -->
-   <div class="status-bar">
+  <section>
     <ul>
       <li *ngFor="let circle of circleArray; let i=index" [ngClass]="{active: isActive==i+1}">{{i+1}}</li>
-    </ul>  
-  </div> 
+    </ul>
+  </section>
 
-  <ion-slides (ionSlideDidChange)="slideChanged()"> 
-      <ion-slide>
-        <div class="slideForm">
-       <ion-list >
-         <!--<ion-item no-lines>
-         </ion-item>-->
-        <ion-item class="first-item">
-           <ion-label floating>First Name</ion-label>
-          <ion-input class="text-input" [(ngModel)]="name" type="text" ></ion-input>
+  <ion-slides (ionSlideDidChange)="slideChanged()">
+    <ion-slide>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>First Name</ion-label>
+          <ion-input class="text-input" [(ngModel)]="name" type="text"></ion-input>
         </ion-item>
         <ion-item class="first-item">
-           <ion-label floating>Email</ion-label>
-          <ion-input  [(ngModel)]="email" type="email"></ion-input>
+          <ion-label floating>Email</ion-label>
+          <ion-input [(ngModel)]="email" type="email"></ion-input>
         </ion-item>
-        <!--<ion-item no-lines>
-        </ion-item>-->
       </ion-list>
-        </div>
+      <label><h1>When did your last period start?</h1></label>
+      <br/>
 
-        <label><h1>When did your last period start?</h1></label>
-        <br/>
-          
-     
-       <div class="parent">
-         <div class="child">
-           <ion-list>
-             <ion-item class="sec-item">
-            <span (click)="selectDate()"><label>{{month}} </label><label>{{day}} </label><label>{{year}} </label></span>
-             </ion-item>
-           </ion-list>
-         </div>
-       </div>
-         </ion-slide>
-      
-      <ion-slide>
-        <div class="days-label">How many days it last?</div>
-        <div class="parent">
-         <div class="child">
-            <span (click)="selectPeriodDay()"><label>{{lastPeriodDay}} </label><label>Days </label></span>
-         </div>
-       </div>
-      </ion-slide>
-      
-      <ion-slide>
-          
-        <div class="days-label">How long is your usual menstrual cycle?</div>
-        <div class="parent">
-         <div class="child">
-            <span (click)="cycleLengthDay()"><label>{{cycleLength}} </label>Days</span>
-         </div>
-        </div>
-      </ion-slide>
+      <ion-list>
+      <ion-item>
+        <ion-datetime displayFormat="MMMM DD YYYY" [(ngModel)]="todayDate"></ion-datetime>
+        <ion-icon name="calender" item-end></ion-icon>
+      </ion-item>
+    </ion-list>
+    </ion-slide>
 
-       <ion-slide>
-       <div class="days-label">How many days are your usual period length?</div>
-        <div class="parent">
-         <div class="child">
-            <span (click)="periodLengthDay()"><label>{{periodLength}} </label>Days</span>
-         </div>
-       </div>
-      </ion-slide>
+    <ion-slide>
+      <div class="days-label">How many days it last?</div>
+      <div class="parent">
+        <div class="child">
+          <span (click)="selectPeriodDay()"><label>{{lastPeriodDay}} </label><label>Days </label></span>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+
+      <div class="days-label">How long is your usual menstrual cycle?</div>
+      <div class="parent">
+        <div class="child">
+          <span (click)="cycleLengthDay()"><label>{{cycleLength}} </label>Days</span>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="days-label">How many days are your usual period length?</div>
+      <div class="parent">
+        <div class="child">
+          <span (click)="periodLengthDay()"><label>{{periodLength}} </label>Days</span>
+        </div>
+      </div>
+    </ion-slide>
 
   </ion-slides>
 </ion-content>
 
 <ion-footer class="agree-div">
-  <button class="agree-btn" [hidden]="nextShow == false" [disabled]="disabled" ionInput="runTimeChange($event)" ion-button large full (click)="next()" round>Next</button>
-  <button class="agree-btn" [hidden]="nextShow == true" ion-button large full (click)="start()" round >Start</button>
+  <button class="agree-btn" [hidden]="nextShow == false" [disabled]="disabled" ionInput="runTimeChange($event)" ion-button
+    large full (click)="next()" round>Next</button>
+  <button class="agree-btn" [hidden]="nextShow == true" ion-button large full (click)="start()" round>Start</button>
 </ion-footer>
