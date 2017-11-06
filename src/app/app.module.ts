@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import {HttpModule, Http} from '@angular/http';
 import { PreSettingsPage } from '../pages/pre-settings/pre-settings';
 
 import { MyApp } from './app.component';
@@ -11,9 +12,11 @@ import { TermsAndConditionPage } from '../pages/terms-and-condition/terms-and-co
 import { WelcomePage } from '../pages/welcome/welcome';
 
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { HomePage } from '../pages/home/home'
+
 
 
 @NgModule({
