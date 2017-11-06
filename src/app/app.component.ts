@@ -7,7 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TermsAndConditionPage } from '../pages/terms-and-condition/terms-and-condition';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { PreSettingsPage } from '../pages/pre-settings/pre-settings';
-import { HomePage } from '../pages/home/home'
+
  
 @Component({
   templateUrl: 'app.html'
