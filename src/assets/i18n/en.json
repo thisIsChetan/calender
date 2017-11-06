@@ -6,28 +6,33 @@
   "WALKTHROUGH":{
     "0":{
       "IMG":"./assets/img/Shape.png",
-      "TITTLE":"Period",
-      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+      "TITTLE":"Tracking",
+      "TEXT":"Track your menstrual cycles with period, ovulation and fertility days. It also predicts your future periods so that you know your days and you can plan your future events accordingly."
     },
     "1":{
       "IMG":"./assets/img/Shape.png",
-      "TITTLE":"Fertile",
-      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+      "TITTLE":"Feeling",
+      "TEXT":"Add your moods and symptoms on your calendar days. This will help you to know how you were feeling."
     }, 
     "2":{
       "IMG":"./assets/img/Shape.png",
-      "TITTLE":"Ovulation",
-      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+      "TITTLE":"Sharing",
+      "TEXT":"You can share your menstrual cycle’s history and future predictions with your Doctor or Partner. Now that’s helpful. "
     }, 
     "3":{
       "IMG":"./assets/img/Shape.png",
-      "TITTLE":"Past and Prediction",
-      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+      "TITTLE":"No Advertising",
+      "TEXT":"Ads on mobile app can sometimes be annoying, so that’s why we said NO to Ads. Our app is free and easy to use. Hurray!!!"
     }, 
     "4":{
       "IMG":"./assets/img/Shape.png",
-      "TITTLE":"Share it",
-      "TEXT":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt purus. Maecenas sodales luctus nibh vel molestie."
+      "TITTLE":"Society Endorsing",
+      "TEXT":"This app is endorsed by Society of Obstetricians and Gynecologist of Pakistan another thumbs up."
+    },
+    "5":{
+      "IMG":"./assets/img/Shape.png",
+      "TITTLE":"Privacy Maintaining",
+      "TEXT":"We know how important your privacy is, so we don’t gather and save your data on any server. Whatever you do in the app is with you."
     },
     "SKIP":"Skip it, I know"
   },

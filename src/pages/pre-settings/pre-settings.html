@@ -6,10 +6,9 @@
 -->
 
 <ion-header>
-
   <ion-navbar>
     <ion-buttons [hidden]="!backEnabled" left>
-      <button class="btn-back" ion-button (click)="back()"><ion-icon ><img src="./assets/icon/Back.svg"/></ion-icon>  Back</button>
+      <button class="btn-back" ion-button (click)="back()"><ion-icon ><img src="./assets/icon/Back.svg"/></ion-icon>Back</button>
     </ion-buttons>
     <ion-title></ion-title>
   </ion-navbar>
@@ -25,25 +24,26 @@
 
   <ion-slides (ionSlideDidChange)="slideChanged()">
     <ion-slide>
-      <ion-list>
-        <ion-item>
-          <ion-label floating>First Name</ion-label>
-          <ion-input class="text-input" [(ngModel)]="name" type="text"></ion-input>
-        </ion-item>
-        <ion-item class="first-item">
-          <ion-label floating>Email</ion-label>
-          <ion-input [(ngModel)]="email" type="email"></ion-input>
-        </ion-item>
-      </ion-list>
-      <label><h1>When did your last period start?</h1></label>
-      <br/>
-
-      <ion-list>
-      <ion-item>
-        <ion-datetime displayFormat="MMMM DD YYYY" [(ngModel)]="todayDate"></ion-datetime>
-        <ion-icon name="calender" item-end></ion-icon>
-      </ion-item>
-    </ion-list>
+      <form [formGroup]="infoValidator">
+        <ion-list>
+          <ion-item>
+            <ion-label floating>First Name</ion-label>
+            <ion-input class="text-input" type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+        </ion-list>
+      </form>
+        <label><h1>When did your last period start?</h1></label>
+        <br/>
+        <ion-list>
+          <ion-item>
+            <ion-datetime displayFormat="MMMM DD YYYY" [(ngModel)]="todayDate" [min]="lastAllowedDate" [max]="todayDate"></ion-datetime>
+            <ion-icon name="calender" item-end></ion-icon>
+          </ion-item>
+        </ion-list>
     </ion-slide>
 
     <ion-slide>
@@ -77,8 +77,8 @@
   </ion-slides>
 </ion-content>
 
-<ion-footer class="agree-div">
-  <button class="agree-btn" [hidden]="nextShow == false" [disabled]="disabled" ionInput="runTimeChange($event)" ion-button
-    large full (click)="next()" round>Next</button>
-  <button class="agree-btn" [hidden]="nextShow == true" ion-button large full (click)="start()" round>Start</button>
+<ion-footer>
+  <button [hidden]="nextShow == false" [disabled]="disabled" ionInput="runTimeChange($event)" ion-button large full (click)="next()"
+    round>Next</button>
+  <button [hidden]="nextShow == true" ion-button large full (click)="start()" round>Start</button>
 </ion-footer>

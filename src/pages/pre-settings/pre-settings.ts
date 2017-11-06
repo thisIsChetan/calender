@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, Slides, App, PickerController, PickerColumn, PickerColumnOption } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import * as moment from 'moment';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 /**
  * Generated class for the PreSettingsPage page.
  *
@@ -31,11 +32,22 @@ export class PreSettingsPage {
   email:any;
   disabled:boolean;
   todayDate:String =  "2017-11-06";
+  lastAllowedDate:String =  "2017-10-06";
+  infoValidator: FormGroup;
 
-  constructor(public picker: PickerController, public navCtrl: NavController, public navParams: NavParams, public menu:MenuController, public app:App) {
+  constructor(public picker: PickerController, 
+              public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public menu:MenuController, 
+              public app:App,
+              private formBuilder: FormBuilder) {
     this.menu.enable(false);
     this.disableBtn = false;
     this.isActive = 1;
+    this.infoValidator = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.email, Validators.required]]
+    });
     
   }
 
@@ -54,6 +66,8 @@ export class PreSettingsPage {
   }
 
   next(){
+    console.log(this.infoValidator);
+    console.log(this.infoValidator.valid);
     this.isActive++;
     this.slides.lockSwipes(false); //unlock swipe
     this.slides.slideTo(this.isActive-1);

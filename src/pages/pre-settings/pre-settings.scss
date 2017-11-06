@@ -1,38 +1,13 @@
-//  .picker-wrapper {
-//     left: 0 !important;
-//     right: 0 !important;
-//     bottom: 0 !important;
-//     top:0 !important;
-//     margin: auto;
-//     -webkit-transform: translate3d(0, 10%, 0) !important;
-//     transform: translate3d(0, 10%, 0) !important;
-//     position: absolute;
-//     z-index: 10;
-//     display: -webkit-box;
-//     display: -webkit-flex;
-//     display: -ms-flexbox;
-//     display: flex;
-//     overflow: hidden;
-//     -webkit-box-orient: vertical;
-//     -webkit-box-direction: normal;
-//     -webkit-flex-direction: column;
-//     -ms-flex-direction: column;
-//     flex-direction: column;
-//     width: 100%;
-//     max-width: 500px;
-    
-//     }
-page-pre-settings {
 
-   
+page-pre-settings {   
     overflow: hidden;
-    ion-slide.swiper-slide {
-      align-items: flex-start;
-    }
-
-    .period-start-content{
-        margin: 0px 25px !important;
-        border-top: 0px !important;
+    ion-slides {
+        display: block;
+        width: 100%;
+        height: 100%;
+        .swiper-slide {
+            align-items: flex-start;
+        }
     }
     ion-item{
         border-top: 0px !important;
@@ -47,35 +22,32 @@ page-pre-settings {
             color: white;
         }
     }
-    .agree-div{
-       
-        padding: 13px 31px;
-    }
-    .agree-btn{
-        border-radius: 30px !important;
-        height: 40px;
-        background: white;
-        color:rgba(237, 88, 168, 1);
-    }
-    .flex-container {
-        display: -webkit-flex;
-        display: flex;
-        width: 100%;
-        height: 100px;
+
+    ion-footer {
+        max-height: 56px !important;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px !important; 
+        background: transparent !important;
+        
+        button{
+            display: block  !important;
+            max-height: 46px !important;
+            max-width: 350px !important;
+            margin: auto  !important;
+            background: white !important;
+             color: #E947AC !important;
+        }    
     }
     section{
         position: relative;
         text-align: center;
     }
 
-    ion-slides {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
+
    
 
-     ul{
+    ul{
         padding: 0px!important;
     }
     
@@ -85,8 +57,8 @@ page-pre-settings {
         text-align: center;
         line-height: 40px;
         border-radius: 40px;
+        border: 2px solid white; 
         background: #FAABBF;
-        border: 2px solid white;
         display: inline-block;
         color: white;
         position: relative;
@@ -109,36 +81,33 @@ page-pre-settings {
     }
 
     .active {
-         -webkit-transition: all 0.7s ease-out;
+        -webkit-transition: all 0.7s ease-out;
         -moz-transition: all 0.7s ease-out;
         -ms-transition: all 0.7s ease-out;
         -o-transition: all 0.7s ease-out;
         transition: all 0.7s ease-out;
-        background: #FA8F9D;
+        background: white;
+        color:rgba(237, 88, 168, 1);
     }
 
     .active ~ li {
-         -webkit-transition: all 0.7s ease-out;
+        -webkit-transition: all 0.7s ease-out;
         -moz-transition: all 0.7s ease-out;
         -ms-transition: all 0.7s ease-out;
         -o-transition: all 0.7s ease-out;
         transition: all 0.7s ease-out;
         background: #FAABBF;
+        border: 2px solid #FAABBF;
     }
 
     .active ~ li::before {
-         -webkit-transition: all 0.7s ease-out;
+        -webkit-transition: all 0.7s ease-out;
         -moz-transition: all 0.7s ease-out;
         -ms-transition: all 0.7s ease-out;
         -o-transition: all 0.7s ease-out;
         transition: all 0.7s ease-out;
-        background: lightblue;
+        background: #FAABBF;;
     }      
-
-    .hide {
-      visibility: hidden;
-    }
-
     .parent{
         position: relative;
         width: 100%;
@@ -148,9 +117,7 @@ page-pre-settings {
     }
 
     .child{
-        // position: absolute;
-            border-top: 1px solid white;
-    border-bottom: 1px solid;
+        position: absolute;
         margin: auto;
         left: 0;
         right: 0;
@@ -174,7 +141,7 @@ ion-content {
     position: relative;
     display: block;
     width: 100%;
-   background: linear-gradient(#FD979B,#E947AC);
+    background: linear-gradient(#FD979B,#E947AC);
     height: 100%;
     contain: layout size style;
 }
@@ -192,22 +159,22 @@ label{
     color:white;
 }
 
-.sec-item
-{
-    background:transparent;
-    text-align: center;
-}
+// .sec-item
+// {
+//     background:transparent;
+//     text-align: center;
+// }
 
 .toolbar-background{
    background: linear-gradient(#FFA199,#FD979B);
 }
 
-.bar-button-default {
+.btn-back {
     color: white;
 }
-ion-icon{
-    margin: 5px;
-}
+// ion-icon{
+//     margin: 5px;
+// }
 }
 
 
