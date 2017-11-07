@@ -9,77 +9,78 @@
   <ion-navbar>
     <button ion-button menuToggle icon-only>
       <ion-icon name='menu'></ion-icon>
-    </button> 
-    <ion-title>ShareHistory</ion-title>
+    </button>
+    <ion-title> {{"SHAREHISTORY.HEADER" | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)="toggleDoctor()" [ngClass]="isDoctorSelected ? 'selected' : '' ">
+        <img src="assets/img/sample.png"> {{"SHAREHISTORY.DOCTOR" | translate}}
+      </ion-col>
+      <ion-col (click)="togglePartner()" [ngClass]="isPartnerSelected ? 'selected' : '' ">
+        <img src="assets/img/sample.png"> {{"SHAREHISTORY.PARTNER" | translate}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item *ngIf="isDoctorSelected">
+      <ion-label floating>{{"SHAREHISTORY.DOCTOR_EMAIL" | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="doctorEmail"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="isPartnerSelected">
+      <ion-label floating>{{"SHAREHISTORY.PARTNER_EMAIL" | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="partnerEmail"></ion-input>
+    </ion-item>
+
     <ion-grid>
-        <ion-row>
-          <ion-col >
-            <div class="img-holder">
-                <img src="assets/img/sample.png">
-                Doctor
-            </div>
-          </ion-col>
-          <ion-col>
-              <div class="img-holder">
-                  <img src="assets/img/sample.png" >
-                  Pertner
-              </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-list>
-         
-  <ion-item>
-    <ion-label stacked>Email</ion-label>
-    <ion-input type="text" placeholder="xyz@email"></ion-input>
-  </ion-item>
-        <ion-grid>
-          <ion-list-header >
-            <ion-label>Select start and end date</ion-label>    
-             <ion-checkbox color="primary" checked="true"></ion-checkbox>  
-          </ion-list-header> 
 
-  <ion-row>
-    <ion-col col-6>
-      <ion-label style="margin:12px"> Start Date</ion-label>
-      <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
-    </ion-col>
-    <ion-col col-6>
-      <ion-label style="margin:12px">End Date</ion-label>
-      <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime></ion-col>
-  </ion-row>
-</ion-grid>
-     
-          <ion-list-header>
-            <ion-label>Select Month</ion-label>
-             <ion-checkbox color="primary" checked="true"></ion-checkbox>
-            </ion-list-header> 
-            <ion-item>
-    <ion-label floating>Select Month</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-                <ion-list radio-group>
-  <ion-list-header>
-    <ion-label>Select Cycle</ion-label>
-   <ion-checkbox color="primary" checked="true"></ion-checkbox>
-  </ion-list-header>
+      <ion-list-header>
+        <ion-label>{{"SHAREHISTORY.START_END_DATE_LABEL" | translate}}</ion-label>
+        <ion-checkbox color="primary" checked="true"></ion-checkbox>
+      </ion-list-header>
 
-  <ion-item>
-    <ion-label>Last Cycle</ion-label>
-    <ion-radio checked="true" value="go"></ion-radio>
-  </ion-item>
+      <ion-row>
+        <ion-col col-6>
+          <ion-label style="margin:12px">{{"SHAREHISTORY.START_DATE" | translate}}</ion-label>
+          <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
+        </ion-col>
+        <ion-col col-6>
+          <ion-label style="margin:12px">{{"SHAREHISTORY.END_DATE" | translate}}</ion-label>
+          <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-  <ion-item>
-    <ion-label>Current Cycle</ion-label>
-    <ion-radio value="rust"></ion-radio>
-  </ion-item>
-                </ion-list>
-                  </ion-list>
+    <ion-list-header>
+      <ion-label> {{"SHAREHISTORY.SELECT_MONTH_LABEL" | translate}} </ion-label>
+      <ion-checkbox color="primary" checked="true"></ion-checkbox>
+    </ion-list-header>
+    <ion-item>
+      <ion-label floating>{{"SHAREHISTORY.SELECT_MONTH" | translate}}</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-list radio-group>
+      <ion-list-header>
+        <ion-label>{{"SHAREHISTORY.SELECT_CYCLE_LABEL" | translate}}</ion-label>
+        <ion-checkbox color="primary" checked="true"></ion-checkbox>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>{{"SHAREHISTORY.LAST_CYCLE" | translate}}</ion-label>
+        <ion-radio checked="true" value="go"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{"SHAREHISTORY.CURRENT_CYCLE" | translate}}</ion-label>
+        <ion-radio value="rust"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-list>
 
 </ion-content>
