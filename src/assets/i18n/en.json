@@ -54,6 +54,7 @@
     "PARTNER_EMAIL": "Partner's Email",
     "DOCTOR_EMAIL": "Doctor's Email"
   },
+
   "SHAREHISTORY": {
     "HEADER": "ShareHistory",
     "PARTNER": "Partner",
@@ -68,5 +69,22 @@
     "SELECT_CYCLE_LABEL":"Select Cycle",
     "LAST_CYCLE":"Last Cycle",
     "CURRENT_CYCLE":"Current Cycle"
-  }
+  },
+  "MENU":{
+    "HOME":"Home",
+    "PERIOD_LOGS":"Period Logs",
+    "INDICATIONS":"Indications",
+    "SHARE_HISTORY":"Share History",
+    "FAQS":"FAQs",
+    "PRIVACY_POLICY":"Privacy Policy",
+    "TERMS":"Terms",
+    "SHARE_APP":"Share App",
+    "SETTINGS":"Settings"
+  },
+
+  "VALIDATION":{
+    "REQUIRED": "This field is required.",
+    "NAME": "This field cannot have numeric.",
+    "EMAIL": "This is an invalid email address."
+  } 
 }

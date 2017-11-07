@@ -18,23 +18,20 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class PreSettingsPage {
   @ViewChild(Slides) slides: Slides;
-  disableBtn: boolean;
   circleArray:any;
   isActive:any;
   nextShow:boolean = true;
   backEnabled:boolean;
-  simpleColumns:any;
-  items:any;
-  lastPeriodDay:any;
-  cycleLength:any;
-  periodLength:any;
-  name:any;
-  email:any;
-  disabled:boolean;
-  todayDate:String =  "2017-11-06";
-  lastAllowedDate:String =  "2017-10-06";
-  infoValidator: FormGroup;
 
+  cycleLength:string = "28";
+  periodLength:string = "8";
+  lastPeriodStart:string = moment().format("YYYY-MM-DD");
+  lastAllowedDate:string = moment().subtract(45, 'days').format("YYYY-MM-DD");
+  lastPeriodLength:string = "8";
+
+  infoValidator: FormGroup;
+  emailValidation:string = (new RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)).toString().slice(2, -2);
+  nameRegex:string = (new RegExp(/^([^0-9]*)$/)).toString().slice(2, -2);
   constructor(public picker: PickerController, 
               public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -42,7 +39,6 @@ export class PreSettingsPage {
               public app:App,
               private formBuilder: FormBuilder) {
     this.menu.enable(false);
-    this.disableBtn = false;
     this.isActive = 1;
     this.infoValidator = this.formBuilder.group({
       name: ['', Validators.required],
@@ -55,14 +51,8 @@ export class PreSettingsPage {
     console.log('ionViewDidLoad PreSettingsPage');
     this.circleArray = [1,2,3,4];
     this.slides.lockSwipes(true);
-    this.cycleLength=""
-    this.items = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
-    //(this.name) ? this.disabled = false : this.disabled = true;
-    console.log(this.isActive);
-    setInterval(()=>{
-      console.log(this.todayDate);
-    },1000)
-    
+    console.log(this.isActive);    
+    console.log(moment().format("YYYY-MM-DD"))
   }
 
   next(){
@@ -115,7 +105,7 @@ export class PreSettingsPage {
       console.log($event);
     }
 
-    selectPeriodDay(){
+    selectLastPeriodLength(){
       let selectedIndex = 7;
       let picker1 = this.picker.create({
           buttons: [
@@ -129,17 +119,17 @@ export class PreSettingsPage {
             {
               text: "Done",
               handler: (data: any) => {
-                this.lastPeriodDay = data.name.text;
+                this.lastPeriodLength = data.name.text;
                 console.log(data.name.text);
               }
             }
           ]
         });
 
-         let colArray: PickerColumnOption[] = []
-        for (let i = 0; i < this.items.length; i++) {
+        let colArray: PickerColumnOption[] = []
+        for (let i = 1; i < 16; i++) {
           let col: PickerColumnOption = {
-            text: this.items[i],
+            text: i.toString(),
             value: i,
           }
           colArray.push(col)
@@ -156,8 +146,8 @@ export class PreSettingsPage {
         picker1.present(picker1);
     }
 
-    cycleLengthDay(){
-      let selectedIndex = 7;
+    selectCycleLength(){
+      let selectedIndex = 13;
       let picker2= this.picker.create({
           buttons: [
             {
@@ -178,9 +168,9 @@ export class PreSettingsPage {
         });
 
          let colArray: PickerColumnOption[] = []
-        for (let i = 0; i < this.items.length; i++) {
+        for (let i = 15; i < 51; i++) {
           let col: PickerColumnOption = {
-            text: this.items[i],
+            text: i.toString(),
             value: i,
           }
           colArray.push(col)
@@ -197,7 +187,7 @@ export class PreSettingsPage {
         picker2.present(picker2);
     }
 
-    periodLengthDay(){
+    selectLengthDay(){
       let selectedIndex = 7;
       let picker3 = this.picker.create({
           buttons: [
@@ -219,9 +209,9 @@ export class PreSettingsPage {
         });
 
          let colArray: PickerColumnOption[] = []
-        for (let i = 0; i < this.items.length; i++) {
+        for (let i = 1; i < 16; i++) {
           let col: PickerColumnOption = {
-            text: this.items[i],
+            text: i.toString(),
             value: i,
           }
           colArray.push(col)

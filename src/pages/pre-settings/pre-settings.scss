@@ -131,7 +131,20 @@ page-pre-settings {
     }
 
     ion-list{
-        margin: 0 7% !important;
+        margin: 0 3% !important;
+    }
+    form{
+        margin: 0 3% !important;
+        ion-item{
+            margin-bottom: 5vh !important;
+            ion-label{
+                margin: 0px!important;
+            }
+            ion-input{
+                margin: 0px!important;
+            }
+        }
+        
     }
  
 

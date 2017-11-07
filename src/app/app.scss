@@ -64,3 +64,10 @@ ion-grid.menu-header{
     }
 }
 
+.err-msg{
+    color: color($colors,danger);
+}
+.header-md::after{
+    display: none;
+}
+
