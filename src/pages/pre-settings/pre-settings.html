@@ -25,23 +25,35 @@
   <ion-slides (ionSlideDidChange)="slideChanged()">
     <ion-slide>
       <form [formGroup]="infoValidator">
-        <ion-list>
           <ion-item>
-            <ion-label floating>First Name</ion-label>
-            <ion-input class="text-input" type="text" formControlName="name"></ion-input>
+            <ion-label stacked>First Name</ion-label>
+            <ion-label>
+                <p>
+                  <span class="err-msg" *ngIf="(showErrors || this.infoValidator.controls['name'].touched) && this.infoValidator.controls['name'].invalid && this.infoValidator.value['name'].length != 0">{{"VALIDATION.NAME"| translate }}</span>
+                  <span class="err-msg" *ngIf="(showErrors || this.infoValidator.controls['name'].touched) && this.infoValidator.controls['name'].invalid && this.infoValidator.value['name'].length == 0">{{"VALIDATION.REQUIRED" | translate}}</span>
+                  <span class="err-msg" *ngIf="(showErrors || this.infoValidator.controls['name'].touched) && this.infoValidator.value['name'].length != 0 && this.infoValidator.value['name'].length > 20">{{"VALIDATION.MAXCHAR" | translate}} 20</span>
+                </p>
+            </ion-label>
+            <ion-input class="text-input" type="text" formControlName="name" [maxlength]="50" [pattern]="nameRegex"></ion-input>
           </ion-item>
+          
           <ion-item>
-            <ion-label floating>Email</ion-label>
-            <ion-input type="email" formControlName="email"></ion-input>
+            <ion-label stacked>Email</ion-label>
+            <ion-label>
+                <p>
+                  <span class="err-msg" *ngIf="(showErrors || this.infoValidator.controls['email'].touched) && this.infoValidator.controls['email'].invalid && this.infoValidator.value['email'].length != 0">{{"VALIDATION.EMAIL"| translate }}</span>
+                  <span class="err-msg" *ngIf="(showErrors || this.infoValidator.controls['email'].touched) && this.infoValidator.controls['email'].invalid && this.infoValidator.value['email'].length == 0">{{"VALIDATION.REQUIRED" | translate}}</span>
+                  <span class="err-msg" *ngIf="(showErrors || this.infoValidator.controls['email'].touched) && this.infoValidator.value['email'].length != 0 && this.infoValidator.value['email'].length > 50">{{"VALIDATION.MAXCHAR" | translate}} 50</span>
+                </p>
+            </ion-label>
+            <ion-input type="email" formControlName="email" [pattern]="emailRegex"></ion-input>
           </ion-item>
-        </ion-list>
       </form>
         <label><h1>When did your last period start?</h1></label>
         <br/>
         <ion-list>
           <ion-item>
-            <ion-datetime displayFormat="MMMM DD YYYY" [(ngModel)]="todayDate" [min]="lastAllowedDate" [max]="todayDate"></ion-datetime>
-            <ion-icon name="calender" item-end></ion-icon>
+            <ion-datetime displayFormat="MMMM DD YYYY" [(ngModel)]="lastPeriodStart" [min]="lastAllowedDate" [max]="lastPeriodStart"></ion-datetime>
           </ion-item>
         </ion-list>
     </ion-slide>
@@ -50,17 +62,16 @@
       <div class="days-label"><h1>How many days it last?</h1></div>
       <div class="parent">
         <div class="child">
-          <span (click)="selectPeriodDay()"><label>{{lastPeriodDay}} </label><label>Days </label></span>
+          <span (click)="selectLastPeriodLength()"><label> {{lastPeriodLength}} </label><label>Days </label></span>
         </div>
       </div>
     </ion-slide>
 
     <ion-slide>
-
       <div class="days-label">How long is your usual menstrual cycle?</div>
       <div class="parent">
         <div class="child">
-          <span (click)="cycleLengthDay()"><label>{{cycleLength}} </label>Days</span>
+          <span (click)="selectCycleLength()"><label>{{cycleLength}} </label>Days</span>
         </div>
       </div>
     </ion-slide>
@@ -69,7 +80,7 @@
       <div class="days-label">How many days are your usual period length?</div>
       <div class="parent">
         <div class="child">
-          <span (click)="periodLengthDay()"><label>{{periodLength}} </label>Days</span>
+          <span (click)="selectLengthDay()"><label>{{periodLength}} </label>Days</span>
         </div>
       </div>
     </ion-slide>
@@ -78,7 +89,7 @@
 </ion-content>
 
 <ion-footer>
-  <button [hidden]="nextShow == false" [disabled]="disabled" ionInput="runTimeChange($event)" ion-button large full (click)="next()"
+  <button [hidden]="nextShow == false" [disabled]="disabled || this.infoValidator.invalid" ionInput="runTimeChange($event)" ion-button large full (click)="next()"
     round>Next</button>
   <button [hidden]="nextShow == true" ion-button large full (click)="start()" round>Start</button>
 </ion-footer>
