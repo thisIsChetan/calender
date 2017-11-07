@@ -16,13 +16,36 @@ import { UserInfoProvider } from '../../providers/user-info/user-info';
 })
 export class ProfilePage {
 
+  alowEdit: boolean = false;
+  userName: string;
+  userEmail: string;
+  partnerEmail: string;
+  doctorEmail: string;
+  doctorPhone: string;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              public userInfo: UserInfoProvider) {
+              private userInfo:UserInfoProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+    this.userName = this.userInfo.getName();
+    this.userEmail = this.userInfo.getEmail();
+    this.partnerEmail = this.userInfo.getPartnerEmail();
+    this.doctorEmail = this.userInfo.getDoctorEmail();
+    this.doctorPhone = this.userInfo.getDoctorPhone();
+  }  
+  edit() {
+    this.alowEdit = true;
   }
+  save() {
+    this.userInfo.setName(this.userName);
+    this.userInfo.setEmail(this.userEmail);
+    this.userInfo.setPartnerEmail(this.partnerEmail);
+    this.userInfo.setDoctorEmail(this.doctorEmail);
+    this.userInfo.setDoctorPhone(this.doctorPhone);
 
+    this.alowEdit = false;
+  }
 }
