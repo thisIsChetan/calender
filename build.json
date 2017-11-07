@@ -1,0 +1,24 @@
+{
+    "ios": {
+        "debug": {
+            "codeSignIdentity": "iPhone Distribution: Tata Consultancy Services Limited",
+            "developmentTeam": "6ZF9TD7CTE",
+            "packageType": "enterprise"
+        },
+        "release": {
+            "codeSignIdentity": "iPhone Distribution: Pfizer International Inc",
+            "provisioningProfile": "cabca709-f29b-4f86-9242-905dcddac677",
+            "developmentTeam": "3EAJZ2TE26",
+            "packageType": "enterprise"
+        }
+    },
+     "android": {
+        "release": {
+            "keystore": "my-release-key.keystore",
+            "storePassword": "greenStone",
+            "alias": "alias_name",
+            "password" : "greenStone",
+            "keystoreType": ""
+        }
+    }
+} 

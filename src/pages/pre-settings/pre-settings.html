@@ -6,7 +6,7 @@
 -->
 
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-buttons [hidden]="!backEnabled" left>
       <button class="btn-back" ion-button (click)="back()"><ion-icon ><img src="./assets/icon/Back.svg"/></ion-icon>Back</button>
     </ion-buttons>
@@ -47,7 +47,7 @@
     </ion-slide>
 
     <ion-slide>
-      <div class="days-label">How many days it last?</div>
+      <div class="days-label"><h1>How many days it last?</h1></div>
       <div class="parent">
         <div class="child">
           <span (click)="selectPeriodDay()"><label>{{lastPeriodDay}} </label><label>Days </label></span>
