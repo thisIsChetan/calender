@@ -12,7 +12,7 @@ page-welcome {
     }
 
 ion-content {
-   background: linear-gradient(#FD979B,#E947AC);
+    background: color($colors,primary) !important;
 }
 p,h1{
     color: white;
@@ -31,7 +31,7 @@ ion-footer {
         max-width: 350px !important;
         margin: auto  !important;
         background: white !important;
-         color: #E947AC !important;
+         color: color($colors,primary) !important;
     }
 
 
