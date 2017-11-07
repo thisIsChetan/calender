@@ -46,5 +46,11 @@
     "TERMS":"Terms",
     "SHARE_APP":"Share App",
     "SETTINGS":"Settings"
-  }
+  },
+
+  "VALIDATION":{
+    "REQUIRED": "This field is required.",
+    "NAME": "This field cannot have numeric.",
+    "EMAIL": "This is an invalid email address."
+  } 
 }
