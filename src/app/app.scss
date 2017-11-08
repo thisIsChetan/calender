@@ -29,7 +29,6 @@ ion-grid.menu-header{
         }
         ion-col{
             height: 100%;
-            height: 100%;
             display: -webkit-box;
             display: -moz-box;
             display: -ms-flexbox;
@@ -66,6 +65,9 @@ ion-grid.menu-header{
 
 .err-msg{
     color: color($colors,danger);
+    span{
+        text-align: left !important;
+    }
 }
 .header-md::after{
     display: none;

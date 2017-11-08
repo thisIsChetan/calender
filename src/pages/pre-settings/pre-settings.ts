@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, MenuController, Slides, App, Picke
 import { HomePage } from '../home/home';
 import * as moment from 'moment';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { PeriodDataProvider } from '../../providers/period-data/period-data';
+import { UserInfoProvider } from '../../providers/user-info/user-info';
 /**
  * Generated class for the PreSettingsPage page.
  *
@@ -22,7 +24,6 @@ export class PreSettingsPage {
   isActive:any;
   nextShow:boolean = true;
   backEnabled:boolean;
-
   cycleLength:string = "28";
   periodLength:string = "8";
   lastPeriodStart:string = moment().format("YYYY-MM-DD");
@@ -37,7 +38,9 @@ export class PreSettingsPage {
               public navParams: NavParams, 
               public menu:MenuController, 
               public app:App,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private userInfo: UserInfoProvider,
+              private periodData: PeriodDataProvider) {
     this.menu.enable(false);
     this.isActive = 1;
     this.infoValidator = this.formBuilder.group({
@@ -51,8 +54,6 @@ export class PreSettingsPage {
     console.log('ionViewDidLoad PreSettingsPage');
     this.circleArray = [1,2,3,4];
     this.slides.lockSwipes(true);
-    console.log(this.isActive);    
-    console.log(moment().format("YYYY-MM-DD"))
   }
 
   next(){
@@ -69,163 +70,145 @@ export class PreSettingsPage {
   start(){
     localStorage.setItem("ROOTFLAG","preSetting");
     this.navCtrl.setRoot(HomePage);
-  }
-
-   slideChanged() {
-    let currentIndex = this.slides.getActiveIndex()+1;
-    console.log('Current index is', currentIndex);
-    // switch(this.isActive){
-    //   case 1:
-    //     break;
-    //   case 2:
-    //     this.selectPeriodDay();
-    //     break;
-    //   case 3:
-    //     this.cycleLengthDay();
-    //     break;
-    //   case 4:
-    //     this.periodLengthDay();
-    //     break;
-
-    // }
+    this.userInfo.setName(this.infoValidator.value.name);
+    this.userInfo.setEmail(this.infoValidator.value.email);
+    this.periodData.setFirstPeriodStart(this.lastPeriodStart);
+    this.periodData.setFirstPeriodLength(this.lastPeriodLength);
+    this.periodData.setDefaultCycleLength(this.cycleLength);
+    this.periodData.setDefaultPeriodLength(this.periodLength);
   }
 
   back(){
-     this.isActive--;
+    this.isActive--;
     this.slides.lockSwipes(false); //unlock swipe
     this.slides.slideTo(this.isActive-1);
    
     this.slides.lockSwipes(true); //lock swipe
     (this.isActive>1)? this.backEnabled = true : this.backEnabled=false;
     (this.isActive == 4) ? this.nextShow = false : this.nextShow = true;
-
   }
 
-    runTimeChange($event){
-      console.log($event);
-    }
+  selectLastPeriodLength(){
+    let selectedIndex = 7;
+    let picker1 = this.picker.create({
+      buttons: [
+        {
+          text: "Cancel",
+          role: 'cancel',
+          handler: (data: any) => {
+            
+          }
+        },
+        {
+          text: "Done",
+          handler: (data: any) => {
+            this.lastPeriodLength = data.name.text;
+            console.log(data.name.text);
+          }
+        }
+      ]
+    });
 
-    selectLastPeriodLength(){
-      let selectedIndex = 7;
-      let picker1 = this.picker.create({
-          buttons: [
-            {
-              text: "Cancel",
-              role: 'cancel',
-              handler: (data: any) => {
-                
-              }
-            },
-            {
-              text: "Done",
-              handler: (data: any) => {
-                this.lastPeriodLength = data.name.text;
-                console.log(data.name.text);
-              }
+      let colArray: PickerColumnOption[] = []
+      for (let i = 1; i < 16; i++) {
+        let col: PickerColumnOption = {
+          text: i.toString(),
+          value: i,
+        }
+        colArray.push(col)
+      }
+
+      let column: PickerColumn = {
+        name: "name",
+        columnWidth: '100%',
+        selectedIndex: selectedIndex,
+        options: colArray
+      }
+
+      picker1.addColumn(column);
+      picker1.present(picker1);
+  }
+
+  selectCycleLength(){
+    let selectedIndex = 13;
+    let picker2= this.picker.create({
+        buttons: [
+          {
+            text: "Cancel",
+            role: 'cancel',
+            handler: (data: any) => {
+              
             }
-          ]
-        });
+          },
+          {
+            text: "Done",
+            handler: (data: any) => {
+              this.cycleLength = data.name.text;
+              console.log(data.name.text);
+            }
+          }
+        ]
+      });
 
         let colArray: PickerColumnOption[] = []
-        for (let i = 1; i < 16; i++) {
-          let col: PickerColumnOption = {
-            text: i.toString(),
-            value: i,
-          }
-          colArray.push(col)
+      for (let i = 15; i < 51; i++) {
+        let col: PickerColumnOption = {
+          text: i.toString(),
+          value: i,
         }
+        colArray.push(col)
+      }
 
-        let column: PickerColumn = {
-          name: "name",
-          columnWidth: '100%',
-          selectedIndex: selectedIndex,
-          options: colArray
-        }
+      let column: PickerColumn = {
+        name: "name",
+        columnWidth: '100%',
+        selectedIndex: selectedIndex,
+        options: colArray
+      }
 
-        picker1.addColumn(column);
-        picker1.present(picker1);
-    }
+      picker2.addColumn(column);
+      picker2.present(picker2);
+  }
 
-    selectCycleLength(){
-      let selectedIndex = 13;
-      let picker2= this.picker.create({
-          buttons: [
-            {
-              text: "Cancel",
-              role: 'cancel',
-              handler: (data: any) => {
-                
-              }
-            },
-            {
-              text: "Done",
-              handler: (data: any) => {
-                this.cycleLength = data.name.text;
-                console.log(data.name.text);
-              }
+  selectLengthDay(){
+    let selectedIndex = 7;
+    let picker3 = this.picker.create({
+        buttons: [
+          {
+            text: "Cancel",
+            role: 'cancel',
+            handler: (data: any) => {
+              
             }
-          ]
-        });
-
-         let colArray: PickerColumnOption[] = []
-        for (let i = 15; i < 51; i++) {
-          let col: PickerColumnOption = {
-            text: i.toString(),
-            value: i,
-          }
-          colArray.push(col)
-        }
-
-        let column: PickerColumn = {
-          name: "name",
-          columnWidth: '100%',
-          selectedIndex: selectedIndex,
-          options: colArray
-        }
-
-        picker2.addColumn(column);
-        picker2.present(picker2);
-    }
-
-    selectLengthDay(){
-      let selectedIndex = 7;
-      let picker3 = this.picker.create({
-          buttons: [
-            {
-              text: "Cancel",
-              role: 'cancel',
-              handler: (data: any) => {
-                
-              }
-            },
-            {
-              text: "Done",
-              handler: (data: any) => {
-                this.periodLength = data.name.text;
-                console.log(data.name.text);
-              }
+          },
+          {
+            text: "Done",
+            handler: (data: any) => {
+              this.periodLength = data.name.text;
+              console.log(data.name.text);
             }
-          ]
-        });
-
-         let colArray: PickerColumnOption[] = []
-        for (let i = 1; i < 16; i++) {
-          let col: PickerColumnOption = {
-            text: i.toString(),
-            value: i,
           }
-          colArray.push(col)
-        }
+        ]
+      });
 
-        let column: PickerColumn = {
-          name: "name",
-          columnWidth: '100%',
-          selectedIndex: selectedIndex,
-          options: colArray
+        let colArray: PickerColumnOption[] = []
+      for (let i = 1; i < 16; i++) {
+        let col: PickerColumnOption = {
+          text: i.toString(),
+          value: i,
         }
+        colArray.push(col)
+      }
 
-        picker3.addColumn(column);
-        picker3.present(picker3);
-    }
+      let column: PickerColumn = {
+        name: "name",
+        columnWidth: '100%',
+        selectedIndex: selectedIndex,
+        options: colArray
+      }
+
+      picker3.addColumn(column);
+      picker3.present(picker3);
+  }
 
 }

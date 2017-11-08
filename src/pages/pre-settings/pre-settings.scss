@@ -9,20 +9,6 @@ page-pre-settings {
             align-items: flex-start;
         }
     }
-    ion-item{
-        border-top: 0px !important;
-        background-color:transparent !important;
-        color: white !important;
-        padding-left: 0px;
-        ion-label {
-            color: white !important;
-        }
-        ion-datetime{
-            margin: auto;
-            color: white;
-        }
-    }
-
     ion-footer {
         max-height: 56px !important;
         padding-left: 10px;
@@ -39,100 +25,115 @@ page-pre-settings {
              color: #E947AC !important;
         }    
     }
+    
     section{
         position: relative;
         text-align: center;
+        ul{
+            padding: 0px!important;
+            li {
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                border-radius: 40px;
+                border: 2px solid white; 
+                background: #FAABBF;
+                display: inline-block;
+                color: white;
+                position: relative;
+                font-size: 20px;
+            }
+            li::before{
+                content: '';
+                position: absolute;
+                top: 20px;
+                left: -4em;
+                width: 4em;
+                height: .2em;
+                background: white;
+                z-index: -1;
+               
+            }
+            li:first-child::before {
+                display: none;
+            }
+            .active {
+                -webkit-transition: all 0.7s ease-out;
+                -moz-transition: all 0.7s ease-out;
+                -ms-transition: all 0.7s ease-out;
+                -o-transition: all 0.7s ease-out;
+                transition: all 0.7s ease-out;
+                background: white;
+                color:rgba(237, 88, 168, 1);
+            }
+            .active ~ li {
+                -webkit-transition: all 0.7s ease-out;
+                -moz-transition: all 0.7s ease-out;
+                -ms-transition: all 0.7s ease-out;
+                -o-transition: all 0.7s ease-out;
+                transition: all 0.7s ease-out;
+                background: #FAABBF;
+                border: 2px solid #FAABBF;
+            }
+            .active ~ li::before {
+                -webkit-transition: all 0.7s ease-out;
+                -moz-transition: all 0.7s ease-out;
+                -ms-transition: all 0.7s ease-out;
+                -o-transition: all 0.7s ease-out;
+                transition: all 0.7s ease-out;
+                background: #FAABBF;;
+            }  
+        }
+    }
+  
+    ion-item{
+        border-top: 0px !important;
+        background-color:transparent !important;
+        color: white !important;
+        padding-left: 0px;
+        ion-datetime{
+            margin: auto;
+            color: white;
+        }
+        ion-label {
+            color: white !important;
+            text-align: left !important;
+        }
+        h1{
+            white-space: normal !important;
+            text-align: center;
+            font-size: 30px !important; 
+        }
+        margin: 0px !important;
+        h2{
+            margin: auto;
+            display: block;
+            text-align: center;
+        }            
     }
 
-
-   
-
-    ul{
-        padding: 0px!important;
+    ion-list{
+        ion-item{
+            margin-top: 20% !important; 
+        }
     }
+    .item-margin{
+        margin-top: 15% !important; 
+    }
+    .item-border{
+        border-bottom: 1px solid white !important;
+        border-top: 1px solid white !important;
+    }
+
     
-    li {
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        border-radius: 40px;
-        border: 2px solid white; 
-        background: #FAABBF;
-        display: inline-block;
-        color: white;
-        position: relative;
-    }
-
-    li::before{
-        content: '';
-        position: absolute;
-        top: 20px;
-        left: -4em;
-        width: 4em;
-        height: .2em;
-        background: white;
-        z-index: -1;
-       
-    }
-
-    li:first-child::before {
-        display: none;
-    }
-
-    .active {
-        -webkit-transition: all 0.7s ease-out;
-        -moz-transition: all 0.7s ease-out;
-        -ms-transition: all 0.7s ease-out;
-        -o-transition: all 0.7s ease-out;
-        transition: all 0.7s ease-out;
-        background: white;
-        color:rgba(237, 88, 168, 1);
-    }
-
-    .active ~ li {
-        -webkit-transition: all 0.7s ease-out;
-        -moz-transition: all 0.7s ease-out;
-        -ms-transition: all 0.7s ease-out;
-        -o-transition: all 0.7s ease-out;
-        transition: all 0.7s ease-out;
-        background: #FAABBF;
-        border: 2px solid #FAABBF;
-    }
-
-    .active ~ li::before {
-        -webkit-transition: all 0.7s ease-out;
-        -moz-transition: all 0.7s ease-out;
-        -ms-transition: all 0.7s ease-out;
-        -o-transition: all 0.7s ease-out;
-        transition: all 0.7s ease-out;
-        background: #FAABBF;;
-    }      
-    .parent{
-        position: relative;
-        width: 100%;
-        color: white;
-        height: 100%;
-        margin-top: 11%;
-    }
-
-    .child{
-        position: absolute;
-        margin: auto;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
 
     .days-label{
         margin-top: 30% !important;
         color: white;
     }
 
-    ion-list{
-        margin: 0 3% !important;
-    }
+
     form{
         margin: 0 3% !important;
         ion-item{
@@ -148,40 +149,27 @@ page-pre-settings {
     }
  
 
-ion-content {
-    left: 0;
-    top: 0;
-    position: relative;
-    display: block;
-    width: 100%;
-    background: color($colors,primary) !important;
-    height: 100%;
-    contain: layout size style;
-}
-.text-input::placeholder {
-  color: white;
-}
-
-label{
-    color:white;
-}
-
-// .sec-item
-// {
-//     background:transparent;
-//     text-align: center;
-// }
-
-// .toolbar-background{
-//    background: linear-gradient(#FFA199,#FD979B);
-// }
-
-.btn-back {
+    ion-content {
+        left: 0;
+        top: 0;
+        position: relative;
+        display: block;
+        width: 100%;
+        background: color($colors,primary) !important;
+        height: 100%;
+        contain: layout size style;
+    }
+    .text-input::placeholder {
     color: white;
-}
-// ion-icon{
-//     margin: 5px;
-// }
+    }
+
+    label{
+        color:white;
+    }
+
+    .btn-back {
+        color: white;
+    }
 }
 
 
@@ -197,13 +185,6 @@ and (orientation : portrait) { /* STYLES GO HERE */
 
 
 }
-
-@media only screen 
-and (min-device-width : 414px) 
-and (max-device-width : 736px) 
-and (orientation : landscape) {  
-    
-    /* STYLES GO HERE */}
 
 
 
@@ -233,33 +214,6 @@ and (orientation : landscape) { /* STYLES GO HERE */}
   and (orientation: portrait) 
   and (-webkit-min-device-pixel-ratio: 1.5) {
     li {
-         margin: 0px 80px !important;
-          width: 80px !important;
-        height: 80px !important;
-        text-align: center;
-        line-height: 80px !important;
-        border-radius: 80px !important;
-        font-size: 20px !important;
-    }
-
-    li::before{
-        content: '';
-        position: absolute;
-        top: 40px !important;
-        left: -11em !important;
-        width: 14em !important;
-    }
-    
-}
-
-/* Landscape */
-@media only screen 
-  and (min-device-width: 1024px) 
-  and (max-device-width: 1366px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-
-    li {
         margin: 0px 80px !important;
         width: 80px !important;
         height: 80px !important;
@@ -276,19 +230,7 @@ and (orientation : landscape) { /* STYLES GO HERE */}
         left: -11em !important;
         width: 14em !important;
     }
-
-}
-
-@media all and (orientation:landscape) {
-  /* Styles for landscape screen */
-  page-pre-settings {
-		
-    li {
-         margin: 0px 24px;
-    }
-  }
-
- 
+    
 }
 @media all and (orientation:portrait) {
   /* Styles for Portrait screen */

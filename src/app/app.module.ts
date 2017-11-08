@@ -17,6 +17,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { HomePage } from '../pages/home/home'
 import { UserInfoProvider } from '../providers/user-info/user-info';
+import { PeriodDataProvider } from '../providers/period-data/period-data';
 
 
 
@@ -53,7 +54,8 @@ import { UserInfoProvider } from '../providers/user-info/user-info';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserInfoProvider
+    UserInfoProvider,
+    PeriodDataProvider
   ]
 })
 export class AppModule {
