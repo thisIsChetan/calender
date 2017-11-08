@@ -1,18 +1,45 @@
 page-share-history {
-    ion-list-header{
-     
+    .toolbar-background-ios{
+        background: #fe81bb;  
+    }   
+    .toolbar-title{
+        color: white !important;
     }
-    img-holder{
-        border: black;
+    ion-label[stacked]{
+        margin-bottom: 0;
+        color: #929292;
     }
+    .bar-button{
+        color: white;
+    }
+    .list-header{
+        background: #f6f6f6;
+        color: #6d6d72;
+    }
+
     ion-grid{
         ion-row{
+            text-align: center;
             .selected{
                 border: 5px solid;
             }
-
+            ion-col{
+            img{
+                border-radius: 50%;
+                max-width: 50%;
+            }
         }
-
+       }
     }
+     .colDate{
+         ion-col{
+            ion-label{
+               color: #333333;
+                   }                      
+             }
+          }
+      .datetime-text{
+           border-bottom: 1px solid;
+              }
 
 }
