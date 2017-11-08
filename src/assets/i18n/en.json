@@ -55,20 +55,21 @@
     "DOCTOR_EMAIL": "Doctor's Email"
   },
 
-  "SHAREHISTORY": {
+  "SHARE_HISTORY": {
     "HEADER": "ShareHistory",
     "PARTNER": "Partner",
     "DOCTOR": "Doctor",
     "PARTNER_EMAIL": "Partner Email",
     "DOCTOR_EMAIL": "Doctor Email",
-    "START_END_DATE_LABEL":"Select start and end date",
+    "START_END_LABEL":"Select start and end date",
     "START_DATE":"Start Date",
     "END_DATE":"End Date",
     "SELECT_MONTH_LABEL":"Select Month",
     "SELECT_MONTH":"Select Month",
     "SELECT_CYCLE_LABEL":"Select Cycle",
     "LAST_CYCLE":"Last Cycle",
-    "CURRENT_CYCLE":"Current Cycle"
+    "CURRENT_CYCLE":"Current Cycle",
+    "SEND":"Send"
   },
   "MENU":{
     "HOME":"Home",
@@ -86,5 +87,6 @@
     "REQUIRED": "This field is required.",
     "NAME": "This field cannot have numeric.",
     "EMAIL": "This is an invalid email address."
+    
   } 
 }
